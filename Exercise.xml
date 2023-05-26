@@ -1,0 +1,24 @@
+
+<Wire fileId = "1234" origin = "BOT" fileDate = "2023-04-05T13:04:43">
+	<Order executionDate="2023-04-04T13:04:43" beneficiary = "CRD33400540004" origin="NMB1123005605">
+		<OrderDetails>
+			<Amount>10000000</Amount>
+			<Exponent>2</Exponent>
+			<Currency>TZS</Currency>
+		</OrderDetails>
+	</Order>
+	<Order executionDate="2023-04-04T13:04:43" beneficiary = "CRD33400540005" origin="NMB1123005605">
+		<OrderDetails>
+			<Amount>20000000</Amount>
+			<Exponent>2</Exponent>
+			<Currency>TZS</Currency>
+		</OrderDetails>
+	</Order>
+	<Order executionDate="2023-04-04T13:04:43" beneficiary = "ECO33400540005" origin="NMB1123005606">
+		<OrderDetails>
+			<Amount>20000000</Amount>
+			<Exponent>2</Exponent>
+			<Currency>TZS</Currency>
+		</OrderDetails>
+	</Order>
+</Wire>
