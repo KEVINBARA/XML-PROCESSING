@@ -39,7 +39,7 @@ def process_file(file_path):
 
         my_wire_list.append(wire_item)
 
-    save_wire(my_wire_list)    
+    return my_wire_list      
 
 def save_wire(wire_list):
 
@@ -66,5 +66,7 @@ def save_wire(wire_list):
     conn.commit()
     conn.close()  
 
-process_file('C:/Users/baran/Downloads/Exercise.xml')        
+wire_list_from_process = process_file('C:/Users/baran/Downloads\Exercise.xml') 
+
+save_wire(wire_list_from_process)
 
