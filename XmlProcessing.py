@@ -15,8 +15,7 @@ def fetch_file_paths(folder_path):
     return file_path_list        
 
 
-
-def process_file(file_path):
+def extract_wires_from_file(file_path):
     
     # Parse the XML file
     tree = ET.parse(file_path)
@@ -53,7 +52,7 @@ def process_file(file_path):
 
     return my_wire_list      
 
-def save_wire(wire_list):
+def save_wires(wire_list):
 
 
     # Establish a connection to the postgres Database
@@ -78,12 +77,15 @@ def save_wire(wire_list):
     conn.commit()
     conn.close()  
 
+
+def process_files(file_path_list):
+    for file_path in file_paths_from_fetch:
+        wire_list_from_extract_process = extract_wires_from_file(file_path)
+        save_wires(wire_list_from_extract_process) 
+
 file_paths_from_fetch = fetch_file_paths('C:/Users/baran/Downloads/WireFiles')
 
-for file_path in file_paths_from_fetch:
-
-    wire_list_from_process = process_file(file_path)
-    save_wire(wire_list_from_process) 
+process_files(file_paths_from_fetch)
 
 
 
