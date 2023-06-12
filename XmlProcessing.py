@@ -1,7 +1,19 @@
 import xml.etree.ElementTree as ET
 import psycopg2
+import os
 
 from model.Wire import Wire
+
+
+def fetch_file_paths(folder_path):
+    file_path_list = []
+    for root, _,files in os.walk(folder_path):
+        for file_name in files:
+            file_path = os.path.join(root,file_name)
+            file_path_list.append(file_path)
+
+    return file_path_list        
+
 
 
 def process_file(file_path):
@@ -66,7 +78,15 @@ def save_wire(wire_list):
     conn.commit()
     conn.close()  
 
-wire_list_from_process = process_file('C:/Users/baran/Downloads\Exercise.xml') 
+file_paths_from_fetch = fetch_file_paths('C:/Users/baran/Downloads/WireFiles')
 
-save_wire(wire_list_from_process)
+for file_path in file_paths_from_fetch:
+
+    wire_list_from_process = process_file(file_path)
+    save_wire(wire_list_from_process) 
+
+
+
+
+
 
